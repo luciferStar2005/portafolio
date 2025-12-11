@@ -1,0 +1,80 @@
+<header>
+    <nav>
+        <ul>
+            <li><a href="#aboutme">Sobre mi</a></li>
+            <li><a href="#redes">Mis redes</a></li>
+            <li><a href="#mi-job">Mi trabajo</a></li>
+            <li><a href="#contactame">Contactame</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Andrés Morales</h1>
+    <h2>Fotografo</h2>
+</section>
+
+<section class="Galeria" id="mi-job">
+    <div>
+        <button (click)="openModal()">Retratos</button>
+
+        <!-- Fondo oscuro, necesario para que funcione el CSS -->
+        <div class="modal-backdrop" *ngIf="isModalOpen" (click)="closeModal()"></div>
+
+        <!-- Modal -->
+        <div class="modal" *ngIf="isModalOpen">
+  <h2>Galería de Retratos</h2>
+
+  <div class="galeria-grid">
+    <div class="item" *ngFor="let foto of fotos">
+      <img [src]="foto.src" [alt]="foto.titulo">
+    </div>
+  </div>
+
+  <button class="close-btn" (click)="closeModal()">Cerrar</button>
+</div>
+    </div>
+    <div>
+        <h2>eventos</h2>
+    </div>
+</section>
+<section class="SobreMi" id="aboutme">
+    <div class="sobremi-container">
+        <h1>Sobre mi</h1>
+        <hr class="separador">
+        <div class="container">
+            
+            <img src="../../../assets/images/perfil.jpeg" alt="foto de perfil">
+            <p>
+                Hola, soy Andrés Morales, fotógrafo profesional con pasión por capturar momentos únicos y contar historias a través de imágenes. Me especializo en retratos, eventos y fotografía artística, siempre buscando transmitir emociones y detalles que marcan la diferencia.
+                Mi objetivo es crear un portafolio que no solo muestre mis fotos, sino que permita a los clientes sentir la esencia de mi trabajo antes de contactarme. Cada proyecto que realizo es único, y me encanta combinar creatividad con técnica para lograr resultados memorables.
+            </p>
+        </div>
+        
+    </div>
+    
+</section>
+
+<section id="contactame">
+    <h1>Contactame</h1>
+    <form (submit)="enviarFormulario(); $event.preventDefault()">
+        <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Como te llamas?" required><br><br>
+        <input type="text" [(ngModel)]="email" name="email" placeholder="Tu correo" required><br><br>
+        <textarea placeholder="Escribe tu solicitud" rows="4" cols="50" name="message" [(ngModel)]="mensaje"></textarea><br><br>
+        <input type="submit" value="enviar">
+    </form>
+</section>
+
+<footer>
+    <section class="Mis redes" id="redes">
+        <ul>
+            <li><a>Instagram</a></li>
+            <li><a>Facebook</a></li>
+            <li><a>WhatsApp</a></li>
+        </ul>
+        <p>
+            &copy; <span id="year">2025</span> Mi Sitio Web. Todos los derechos reservados.
+        </p>
+    </section>
+</footer>
+
